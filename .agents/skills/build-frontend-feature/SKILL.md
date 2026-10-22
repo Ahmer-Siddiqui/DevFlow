@@ -1,18 +1,18 @@
 ---
 name: build-frontend-feature
-description: "Procedural playbook for creating frontend features, pages, components, and state management in DevFlow. Enforces the 7-stage workflow from TypeScript models, Axios API clients, TanStack Query hooks, Zustand stores, UI components, React Router wiring, to production build verification."
+description: "Procedural playbook for creating frontend features, pages, components, and state management in DevFlow with side-by-side automated test suites. Enforces the 8-stage workflow from TypeScript models, Axios API clients, TanStack Query hooks, Zustand stores, UI components, React Router wiring, Vitest component/hook tests, to closed-loop verification."
 metadata:
   author: devflow-architect
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Build Frontend Feature Playbook (DevFlow Pipeline)
 
-Use this skill whenever instructed to build, implement, or polish any frontend feature or view in DevFlow Frontend.
+Use this skill whenever instructed to build, implement, or polish any frontend feature or view in DevFlow Frontend. Every feature MUST include side-by-side automated test cases.
 
 ---
 
-## 🏗️ The 7-Stage Frontend Execution Workflow
+## 🏗️ The 8-Stage Frontend Execution Workflow
 
 ### Stage 1: Domain Types & Zod Schemas (`frontend/src/features/<feature>/types/`)
 - Define TypeScript interfaces matching backend response DTOs.
@@ -37,6 +37,14 @@ Use this skill whenever instructed to build, implement, or polish any frontend f
 - Assemble the page in `frontend/src/pages/<Feature>Page.tsx`.
 - Connect to React Router v7 inside `frontend/src/routes/` with `ProtectedRoute` guards.
 
-### Stage 7: Build & Smoke Verification
-- Run `npm run build:frontend` to verify TypeScript and Vite bundling.
+### Stage 7: Side-by-Side Automated Testing (`frontend/src/features/<feature>/__tests__/`)
+- **MANDATORY**: Create unit and component integration tests using **Vitest** and **React Testing Library**:
+  - Test initial render, empty states, and skeleton states.
+  - Test user interactions (button clicks, form inputs, validation errors).
+  - Test hook/mutation behavior with mocked API responses.
+- File naming: `<Component>.test.tsx` or `<hook>.test.ts`.
+
+### Stage 8: Build & Test Verification
+- Run `npm run test:frontend` — all test suites must pass.
+- Run `npm run build:frontend` — zero TypeScript and Vite bundling errors.
 - Update `FEATURE_TRACKER.md`, `FRONTEND_FEATURES.md`, and `.agents/context/FEATURE_LOG.md`.

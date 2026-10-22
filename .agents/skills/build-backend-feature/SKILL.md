@@ -1,14 +1,14 @@
 ---
 name: build-backend-feature
-description: "Procedural, end-to-end playbook for implementing any backend module or feature in DevFlow. Enforces the complete 9-stage pipeline from Entity, Migration, Interfaces, Repositories, Services, Controllers, Zod Validators, Express Routes, and closed-loop compilation verification."
+description: "Procedural, end-to-end playbook for implementing any backend module or feature in DevFlow with mandatory side-by-side automated test suites. Enforces the complete 10-stage pipeline from Entity, Migration, Interfaces, Repositories, Services, Controllers, Zod Validators, Express Routes, Jest/Supertest test suites, and closed-loop verification."
 metadata:
   author: devflow-architect
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Build Backend Feature Playbook (DevFlow Pipeline)
 
-Use this skill whenever instructed to build, implement, or expand any domain feature, resource, or endpoint in DevFlow Backend.
+Use this skill whenever instructed to build, implement, or expand any domain feature, resource, or endpoint in DevFlow Backend. Every feature MUST include side-by-side automated test cases.
 
 ---
 
@@ -20,7 +20,7 @@ Before writing code:
 
 ---
 
-## 🏗️ The 9-Stage Backend Execution Workflow
+## 🏗️ The 10-Stage Backend Execution Workflow
 
 ### Stage 1: Entity Definition (`backend/src/entities/`)
 - Create `backend/src/entities/<name>.entity.ts`.
@@ -57,6 +57,13 @@ Before writing code:
 - Apply `authenticate`, `requireRole`, `tenantContext`, and `validate(schema)`.
 - Mount routes in `backend/src/app.ts`.
 
-### Stage 9: Closed-Loop Compilation Verification
+### Stage 9: Side-by-Side Automated Testing (`backend/tests/`)
+- **MANDATORY**: Create unit and integration test suites:
+  - `tests/unit/<name>.service.test.ts`: Test business logic edge cases, validation errors, and mocked repositories.
+  - `tests/integration/<name>.routes.test.ts`: Test HTTP endpoint status codes (200, 201, 400, 401, 403, 404) with Supertest.
+  - Assert multi-tenant isolation: Verify Tenant B cannot access Tenant A's records.
+
+### Stage 10: Closed-Loop Verification
+- Run `npm run test:backend` — all tests must pass.
 - Run `npm run build:backend` to confirm zero TypeScript compilation errors.
 - Sync progress in `FEATURE_TRACKER.md`, `BACKEND_FEATURES.md`, and `.agents/context/FEATURE_LOG.md`.

@@ -32,6 +32,9 @@ Before declaring any feature or refactor complete, the solution must pass all 6 
 - Drag-and-drop operations must update optimistically with rollback on failure.
 - Every async view must show skeleton loaders on initial load, empty states when collections are empty, and friendly error banners on failure.
 
-### Gate 6: Regression & Smoke Verification
-- Verify newly added endpoints with integration tests or manual API execution.
-- Check that previous features remain functional without broken imports or circular dependencies.
+### Gate 6: Side-by-Side Automated Testing & Regression
+- **MANDATORY**: Run `npm test` (`npm run test:backend && npm run test:frontend`).
+- Every newly created endpoint or UI feature MUST include its corresponding test file:
+  - Backend: Unit test in `backend/tests/unit/` or Integration test in `backend/tests/integration/`.
+  - Frontend: Component / hook test in `frontend/src/features/<feature>/__tests__/`.
+- All tests must pass with exit code 0.
