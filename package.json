@@ -1,0 +1,29 @@
+{
+  "name": "devflow-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DevFlow - Production SaaS Project Management & Collaboration Platform",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm --workspace=backend run dev",
+    "dev:frontend": "npm --workspace=frontend run dev",
+    "build:backend": "npm --workspace=backend run build",
+    "build:frontend": "npm --workspace=frontend run build",
+    "test:backend": "npm --workspace=backend run test"
+  },
+  "keywords": [
+    "saas",
+    "project-management",
+    "typeorm",
+    "express",
+    "react",
+    "vite",
+    "socketio",
+    "redis"
+  ],
+  "author": "",
+  "license": "MIT"
+}

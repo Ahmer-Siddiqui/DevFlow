@@ -7,13 +7,13 @@
 
 ## 🏗️ Phase 01: Frontend Foundation & Setup
 
-- [ ] **Vite + React + TypeScript Initialization**
-  - [ ] Initialize Vite project with strict TypeScript template (`tsconfig.json`)
-  - [ ] Configure path aliases (`@/` mapping to `src/`)
-- [ ] **Tailwind CSS & Design Tokens**
-  - [ ] Configure `tailwind.config.js` with cohesive dark/light mode palette
-  - [ ] Setup modern Google Fonts (Inter / Plus Jakarta Sans)
-  - [ ] Create `index.css` design system variables (HSL based tokens)
+- [x] **Vite + React + TypeScript Initialization**
+  - [x] Initialize Vite project with strict TypeScript template (`tsconfig.json`)
+  - [x] Configure path aliases (`@/` mapping to `src/`)
+- [x] **Tailwind CSS & Design Tokens**
+  - [x] Configure `tailwind.config.js` with cohesive dark/light mode palette
+  - [x] Setup modern Google Fonts (Inter / Plus Jakarta Sans)
+  - [x] Create `index.css` design system variables (HSL based tokens)
 - [ ] **Base UI Primitives (shadcn/ui style)**
   - [ ] `Button.tsx` (variants: primary, secondary, outline, ghost, destructive, with loading spinners)
   - [ ] `Input.tsx`, `Textarea.tsx`, `Select.tsx`
@@ -26,9 +26,9 @@
   - [ ] `ProtectedRoute.tsx` (Redirect to `/login` if unauthenticated)
   - [ ] `AppLayout.tsx` (Collapsible Sidebar, Navbar, Breadcrumbs, Content Area)
   - [ ] `AuthLayout.tsx` (Branded split-screen layout for authentication pages)
-- [ ] **Core Infrastructure Libraries**
-  - [ ] Axios client with `baseURL`, credentials support, and 401 token refresh queue
-  - [ ] TanStack Query `QueryClientProvider` with sensible retry and stale-time defaults
+- [x] **Core Infrastructure Libraries**
+  - [x] Axios client with `baseURL`, credentials support, and 401 token refresh queue
+  - [x] TanStack Query `QueryClientProvider` with sensible retry and stale-time defaults
   - [ ] Global Toast notifications system
 
 ---
