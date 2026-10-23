@@ -3,6 +3,8 @@ import { DataSource } from 'typeorm';
 import { env } from './env';
 import { logger } from './logger';
 
+import { User, Session } from '../entities';
+
 const isProduction = env.NODE_ENV === 'production';
 const isSupabase = env.DATABASE_URL.includes('supabase.co');
 
@@ -11,7 +13,7 @@ export const AppDataSource = new DataSource({
   url: env.DATABASE_URL,
   synchronize: env.NODE_ENV === 'development', // Auto-sync in dev; disable in prod in favor of migrations
   logging: env.NODE_ENV === 'development' ? ['error', 'warn'] : ['error'],
-  entities: [__dirname + '/../entities/**/*.entity{.ts,.js}'],
+  entities: [User, Session, __dirname + '/../entities/**/*.entity{.ts,.js}'],
   migrations: [__dirname + '/../migrations/**/*{.ts,.js}'],
   subscribers: [],
   ssl: isSupabase || isProduction ? { rejectUnauthorized: false } : false,

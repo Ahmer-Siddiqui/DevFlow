@@ -9,6 +9,7 @@ import { requestIdMiddleware } from './middlewares/request-id.middleware';
 import { errorMiddleware } from './middlewares/error.middleware';
 import { ApiResponse } from './utils/api-response';
 import { ApiError } from './utils/api-error';
+import v1Router from './routes/v1';
 
 const app: Application = express();
 
@@ -62,8 +63,8 @@ app.get(`${env.API_PREFIX}/health`, (req: Request, res: Response) => {
   }, 'DevFlow API v1 is operational');
 });
 
-// 4. API Routes (Will mount v1 router here)
-// app.use(env.API_PREFIX, v1Router);
+// 4. API Routes
+app.use(env.API_PREFIX, v1Router);
 
 // 5. 404 Route Handler
 app.use('*', (req: Request, res: Response, next: NextFunction) => {

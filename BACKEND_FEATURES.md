@@ -34,24 +34,24 @@
 
 ## 🔐 Phase 02: Authentication & Session Management
 
-- [ ] **Database Entities**
-  - [ ] `User.entity.ts` (`id`, `email`, `passwordHash`, `name`, `avatar`, `isEmailVerified`, `createdAt`)
-  - [ ] `Session.entity.ts` (`id`, `userId`, `refreshTokenHash`, `userAgent`, `ipAddress`, `expiresAt`)
-- [ ] **Security Utilities**
-  - [ ] Password hashing & comparison utility using `bcrypt`
-  - [ ] JWT sign/verify service (`TokenService`) for short-lived Access Tokens (15m) and long-lived Refresh Tokens (7d)
+- [x] **Database Entities**
+  - [x] `User.entity.ts` (`id`, `email`, `passwordHash`, `name`, `avatar`, `isEmailVerified`, `createdAt`)
+  - [x] `Session.entity.ts` (`id`, `userId`, `refreshTokenHash`, `userAgent`, `ipAddress`, `expiresAt`)
+- [x] **Security Utilities**
+  - [x] Password hashing & comparison utility using `bcrypt`
+  - [x] JWT sign/verify service (`TokenService`) for short-lived Access Tokens (15m) and long-lived Refresh Tokens (7d)
 - [ ] **Auth Endpoints & Service Logic**
-  - [ ] `POST /api/v1/auth/register` (Validate email, hash password, create user, trigger verification)
-  - [ ] `POST /api/v1/auth/login` (Verify credentials, issue tokens, set secure HttpOnly cookie)
-  - [ ] `POST /api/v1/auth/refresh-token` (Validate refresh token, rotate token, update session)
-  - [ ] `POST /api/v1/auth/logout` (Revoke session, clear HttpOnly cookie)
-  - [ ] `GET /api/v1/auth/me` (Return current authenticated user)
+  - [x] `POST /api/v1/auth/register` (Validate email, hash password, create user, trigger verification)
+  - [x] `POST /api/v1/auth/login` (Verify credentials, issue tokens, set secure HttpOnly cookie)
+  - [x] `POST /api/v1/auth/refresh-token` (Validate refresh token, rotate token, update session)
+  - [x] `POST /api/v1/auth/logout` (Revoke session, clear HttpOnly cookie)
+  - [x] `GET /api/v1/auth/me` (Return current authenticated user)
   - [ ] `POST /api/v1/auth/forgot-password` (Generate timed reset token, queue email)
   - [ ] `POST /api/v1/auth/reset-password` (Validate token, update password, invalidate all sessions)
   - [ ] `POST /api/v1/auth/verify-email` (Confirm user email address)
   - [ ] `PATCH /api/v1/auth/change-password` (Verify old password, update to new)
-- [ ] **Authentication Middleware**
-  - [ ] `auth.middleware.ts` (Verify Bearer token or cookie, attach `req.user`)
+- [x] **Authentication Middleware**
+  - [x] `auth.middleware.ts` (Verify Bearer token or cookie, attach `req.user`)
 
 ---
 
